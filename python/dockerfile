@@ -1,0 +1,14 @@
+#nvcr.io/nvidia/pytorch:19.01-py3をベースにする
+FROM nvcr.io/nvidia/pytorch:24.05-py3
+
+#コンテナをアップデート
+RUN apt-get update
+RUN apt-get install libaio-dev -y
+
+RUN apt install git wget -y
+
+#requirements.txtをコンテナにコピーする
+COPY ./requirements.txt /requirements.txt
+
+#キャッシュを無効にしてインストール
+RUN pip install --no-cache-dir -r /requirements.txt

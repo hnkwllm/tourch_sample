@@ -1,0 +1,18 @@
+version: "3"
+services:
+  pytorch_re:
+    container_name: pytorch_ddp_test
+    build: ./python
+    command: /bin/bash
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true
+    volumes:
+    - ./python/workspace:/workspace
+
