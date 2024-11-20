@@ -30,6 +30,6 @@ def main():
              join=True)
 
 if __name__ == "__main__":
-    os.environ["MASTER_ADDR"] = "192.168.12.167"
+    os.environ["MASTER_ADDR"] = "localhost"
     os.environ["MASTER_PORT"] = "29500"
     main()
